@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Automated Essay Scoring</title>
+
+    <style>
+
+      @font-face {
+        font-family: 'Product Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+      }
+
+      body{
+        font-family: Product Sans;
+        background-image: url('back.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        padding-left: 60px;
+      }
+
+      h1{
+        font-size: 50px;
+        font-family: Product Sans;
+        color: white;
+      }
+
+      textarea{
+        padding: 20px;
+        background-color: transparent;
+        color: white;
+        border-radius: 30px;
+        outline: none;
+      }
+
+
+      h3{
+        color: white;
+        font-family: Product Sans;  
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <br><br>
+    <h1 >AUTOMATED ESSAY</h1>
+    <h1>SCORING</h1>
+    <br>
+    <div class="input-group">
+        <textarea id="main" placeholder="Enter Essay Here" rows="11" cols="180"></textarea>
+    </div>
+    <br>
+
+    <br>
+    <button type="button" class="btn btn-outline-light" onclick="senddata()"">Score my Essay!</button>
+    <br>
+    <br>
+    
+    <h3 id="output">
+
+    </h3>
+    <script>
+        function senddata(){
+            var text = document.getElementById("main")
+            var output = document.getElementById("output")
+            const obj = {
+                text:text.value
+            }
+            const str = JSON.stringify(obj)
+            fetch("http://127.0.0.1:5000/", {
+                method: 'POST',
+                body: JSON.stringify(obj),
+            }).then((response) => response.json()).then((result) => {
+                if(!result){
+                  output.innerHTML="Your grade is: 0/10";
+                }
+                else{
+                  output.innerHTML="Your grade is: "+result.score+"/10"
+                }
+                console.log('Success:', result);
+            }).catch((error) => {
+                console.error('Error:', error);
+            });
+
+        }
+    </script>
+
+
+  </body>
+</html>
