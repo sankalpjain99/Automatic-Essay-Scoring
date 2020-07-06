@@ -13,7 +13,7 @@ https://www.kaggle.com/c/asap-aes/data
 
 ## Architecture Diagram
  
- ![Architecture Diagram] (screenshots/arch.jpeg?raw=true "Architecture Diagram")
+ [Architecture Diagram] (screenshots/arch.jpeg?raw=true "Architecture Diagram")
 
 
 ## Proposed Model
@@ -50,9 +50,9 @@ After training our model, the next step was to make our project available to use
  
  The essential of the webpage can be found in the folder, **webapp**.
  Screenshots of the webpage can be found in the following links:
- - ![Landing Page] (screenshots/webpage1.PNG?raw=true "Landing Page")
- - ![Fill Essay] (screenshots/webpage2.PNG?raw=true "Fill Essay")
- - ![Score Displayed] (screenshots/webpage3.PNG?raw=true "Score Displayed")
+ - [Landing Page] (screenshots/webpage1.PNG?raw=true "Landing Page")
+ - [Fill Essay] (screenshots/webpage2.PNG?raw=true "Fill Essay")
+ - [Score Displayed] (screenshots/webpage3.PNG?raw=true "Score Displayed")
  
  
  ## Conclusion
